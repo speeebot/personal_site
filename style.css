@@ -24,6 +24,7 @@ ul {
   
 }
 img { 
+  max-height: auto;
   max-width: 100%;
 }
 .container {
@@ -33,4 +34,5 @@ img {
   flex-direction: column;
   margin-top: 3vmin;
 }
+
 
