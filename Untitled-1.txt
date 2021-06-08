@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111111" />
+  <meta property="og:image" content="/assets/twitter.png" />
+  <link rel="preload" href="/assets/fonts.min.css" as="style">
+  <link rel="stylesheet" href="/assets/fonts.min.css">
+  <link rel="alternate" type="application/atom+xml" title="secret.club RSS" href="/feed.xml">
+  <title>secret club | We Break Software</title>
+  <meta name="generator" content="Jekyll v3.9.0" />
+  <meta property="og:title" content="secret club" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="description"
+    content="Blog about reverse-engineering, hacking and breaking your software in every way imaginable." />
+  <meta property="og:description"
+    content="Blog about reverse-engineering, hacking and breaking your software in every way imaginable." />
+  <link rel="canonical" href="https://secret.club/" />
+  <meta property="og:url" content="https://secret.club/" />
+  <meta property="og:site_name" content="secret club" />
+  <meta name="twitter:card" content="summary" />
+  <meta property="twitter:title" content="secret club" />
+  <meta name="twitter:site" content="@the_secret_club" />
+  <script
+    type="application/ld+json"> {"description":"Blog about reverse-engineering, hacking and breaking your software in every way imaginable.","url":"https://secret.club/","@type":"WebSite","headline":"secret club","name":"secret club","@context":"https://schema.org"}</script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      color: inherit;
+      text-decoration: inherit;
+    }
+
+    html {
+      background: var(--bg-0);
+      color: var(--text-0);
+      width: 100%;
+      text-rendering: optimizeLegibility;
+      font-feature-settings: "kern"1;
+      font-feature-settings: "liga"1;
+      min-width: 100vw;
+      overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    @media all and (min-width:640px) {
+      html {
+        font-size: 16.5px;
+      }
+    }
+
+    @media all and (min-width:720px) {
+      html {
+        font-size: 17px;
+      }
+    }
+
+    @media all and (min-width:960px) {
+      html {
+        font-size: 18px;
+      }
+    }
+
+    body {
+      max-width: 944px;
+      margin: 0 auto;
+      padding: 0 24px;
+      font-family: "Charter", serif;
+    }
+
+    header,
+    h1,
+    h2,
+    h3,
+    .sans {
+      font-family: 'Space Grotesk', Helvetica, sans-serif;
+    }
+
+    code,
+    .mono {
+      font-family: 'Source Code Pro', monospace;
+      font-weight: 500;
+    }
+
+    :root {
+      --text-0: rgba(255, 255, 255, 87%);
+      --text-1: rgba(255, 255, 255, 60%);
+      --bg-0: #121212;
+      --bg-1: rgba(255, 255, 255, 5%);
+      --bg-2: rgba(255, 255, 255, 12%);
+      --accent: #ef5350;
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        --text-0: rgba(0, 0, 0, 87%);
+        --text-1: rgba(0, 0, 0, 66%);
+        --bg-0: #fff;
+        --bg-1: #f2f2f2;
+        --bg-2: rgba(0, 0, 0, 12%);
+      }
+    }
+
+    body>header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 2em 0;
+    }
+
+    nav a {
+      margin-left: 1.5em;
+      letter-spacing: 0.07em;
+      font-size: .9rem;
+    }
+
+    hgroup {
+      margin: 4rem 64px 4rem 64px;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    .m {
+      margin-left: 11%;
+      position: relative;
+    }
+
+    .r {
+      text-align: end;
+    }
+
+    h1 {
+      font-size: 6em;
+    }
+
+    .red {
+      color: #EF5350;
+    }
+
+    article {
+      margin: 0 0 1rem -24px;
+      padding-left: 20px;
+      position: relative;
+      border-left: var(--accent) solid 4px;
+    }
+
+    article>a {
+      font-size: 1.3rem;
+      letter-spacing: 0.05em;
+    }
+
+    article>div {
+      font-size: .9rem;
+    }
+
+    article>time {
+      color: var(--text-1);
+      font-size: .9rem;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    article>div {
+      color: var(--text-1)
+    }
+
+    article a {
+      color: var(--text-0);
+      position: relative;
+    }
+
+    .shapes {
+      z-index: -1;
+      position: absolute;
+      margin-left: -340px;
+      margin-top: -500px;
+    }
+
+    @media screen and (min-width: 1248px) {
+      time {
+        position: absolute;
+        left: 0;
+        top: 0;
+        transform: translateX(calc(-100% - 24px));
+      }
+    }
+
+    @media screen and (max-width: 1248px) {
+      .shapes {
+        display: none;
+      }
+    }
+
+    @media screen and (max-width: 1200px) {
+      .m {
+        margin-left: 0;
+      }
+
+      .r {
+        text-align: left;
+      }
+
+      hgroup {
+        margin-left: 0;
+        margin-right: 0;
+      }
+
+      h1 {
+        font-size: 4em;
+        line-height: 100%;
+      }
+
+      h2 {
+        font-size: 2em;
+        line-height: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header> <a href="/">SECRET CLUB</a>
+    <nav> <a href="https://discord.gg/BT764JJDhe">DISCORD</a> <a href="/about">ABOUT</a></nav>
+  </header>
+  <main aria-label="Content">
+    <hgroup>
+      <h1>We</h1>
+      <h1 class="m red">Break</h1>
+      <h1 class="r">Software<span class="red">.</span></h1>
+    </hgroup><svg xmlns="http://www.w3.org/2000/svg" width="2000" height="800" class="shapes">
+      <defs>
+        <pattern id="sqp" width="64" height="64" patternUnits="userSpaceOnUse">
+          <rect width="8" height="8" fill="#EF5350"></rect>
+        </pattern>
+      </defs>
+      <rect width="300" height="400" fill="url(#sqp)"></rect>
+      <rect x="1500" y="500" width="400" height="300" fill="url(#sqp)"></rect>
+    </svg>
+    <article> <time datetime="2021-05-23T23:00:00+00:00" class="mono"> May 23, 2021 </time> <a
+        href="/2021/05/23/big-memory.html" class="sans">Preventing memory inspection on Windows</a>
+      <div class="mono"> <a href="/author/jm" itemprop="name">jm</a> tagged<a href="/tags#windows"> windows</a>,<a
+          href="/tags#anti-debug"> anti-debug</a></div>
+    </article>
+    <article> <time datetime="2021-05-13T23:00:00+00:00" class="mono"> May 13, 2021 </time> <a
+        href="/2021/05/13/source-engine-rce-join.html" class="sans">Counter-Strike Global Offsets: reliable remote code
+        execution</a>
+      <div class="mono"> <a href="/author/brymko" itemprop="name">brymko</a>, <a href="/author/dezk"
+          itemprop="name">dezk</a>, <a href="/author/simon-scannell" itemprop="name">Simon Scannell</a> tagged<a
+          href="/tags#guest"> guest</a>,<a href="/tags#source-engine"> source-engine</a>,<a
+          href="/tags#binary-exploitation"> binary-exploitation</a>,<a href="/tags#pwn"> pwn</a></div>
+    </article>
+    <article> <time datetime="2021-04-20T00:00:00+00:00" class="mono"> Apr 20, 2021 </time> <a
+        href="/2021/04/20/source-engine-rce-invite.html" class="sans">CVE-2021-30481: Source engine remote code
+        execution via game invites</a>
+      <div class="mono"> <a href="/author/floesen" itemprop="name">floesen</a> tagged<a href="/tags#source-engine">
+          source-engine</a>,<a href="/tags#binary-exploitation"> binary-exploitation</a>,<a href="/tags#pwn"> pwn</a>
+      </div>
+    </article>
+    <article> <time datetime="2021-04-09T00:00:00+00:00" class="mono"> Apr 9, 2021 </time> <a
+        href="/2021/04/09/std-clamp.html" class="sans">A look at LLVM - comparing clamp implementations</a>
+      <div class="mono"> <a href="/author/duk" itemprop="name">duk</a> tagged<a href="/tags#llvm"> llvm</a></div>
+    </article>
+    <article> <time datetime="2021-04-03T23:00:00+00:00" class="mono"> Apr 3, 2021 </time> <a
+        href="/2021/04/03/runescape-heuristics.html" class="sans">How Runescape catches botters, and why they didn't
+        catch me</a>
+      <div class="mono"> <a href="/author/vmcall" itemprop="name">vmcall</a> tagged<a href="/tags#automation">
+          automation</a>,<a href="/tags#reverse-engineering"> reverse-engineering</a>,<a href="/tags#game-hacking">
+          game-hacking</a></div>
+    </article>
+    <article> <time datetime="2021-01-29T23:00:00+00:00" class="mono"> Jan 29, 2021 </time> <a
+        href="/2021/01/29/touch-lockscreen-bypass.html" class="sans">BitLocker touch-device lockscreen bypass</a>
+      <div class="mono"> <a href="/author/abdelhamid-naceri" itemprop="name">Abdelhamid Naceri</a> tagged<a
+          href="/tags#windows"> windows</a></div>
+    </article>
+    <article> <time datetime="2021-01-20T23:00:00+00:00" class="mono"> Jan 20, 2021 </time> <a
+        href="/2021/01/20/diet-process.html" class="sans">Process on a diet: anti-debug using job objects</a>
+      <div class="mono"> <a href="/author/jm" itemprop="name">jm</a> tagged<a href="/tags#windows"> windows</a>,<a
+          href="/tags#anti-debug"> anti-debug</a></div>
+    </article>
+    <article> <time datetime="2021-01-15T23:00:00+00:00" class="mono"> Jan 15, 2021 </time> <a
+        href="/2021/01/15/bitlocker-bypass.html" class="sans">BitLocker Lockscreen bypass</a>
+      <div class="mono"> <a href="/author/jonas-l" itemprop="name">Jonas L</a> tagged<a href="/tags#windows">
+          windows</a></div>
+    </article>
+    <article> <time datetime="2021-01-14T23:00:00+00:00" class="mono"> Jan 14, 2021 </time> <a
+        href="/2021/01/14/vbox-escape.html" class="sans">Escaping VirtualBox 6.1: Part 1</a>
+      <div class="mono"> <a href="/author/sauercl0ud" itemprop="name">Sauercl0ud</a>, <a href="/author/a2nkf"
+          itemprop="name">a2nkf</a>, <a href="/author/localo" itemprop="name">localo</a> tagged<a href="/tags#guest">
+          guest</a>,<a href="/tags#binary-exploitation"> binary-exploitation</a>,<a href="/tags#pwn"> pwn</a>,<a
+          href="/tags#ctf"> ctf</a></div>
+    </article>
+    <article> <time datetime="2021-01-12T00:00:00+00:00" class="mono"> Jan 12, 2021 </time> <a
+        href="/2021/01/12/callout.html" class="sans">Hiding execution of unsigned code in system threads</a>
+      <div class="mono"> <a href="/author/drew" itemprop="name">drew</a> tagged<a href="/tags#kernel"> kernel</a>,<a
+          href="/tags#windows"> windows</a>,<a href="/tags#anti-cheats"> anti-cheats</a></div>
+    </article>
+    <article> <time datetime="2021-01-04T23:00:00+00:00" class="mono"> Jan 4, 2021 </time> <a
+        href="/2021/01/04/thread-stuff.html" class="sans">New year, new anti-debug: Don't Thread On Me</a>
+      <div class="mono"> <a href="/author/jm" itemprop="name">jm</a> tagged<a href="/tags#windows"> windows</a>,<a
+          href="/tags#debugging"> debugging</a></div>
+    </article>
+    <article> <time datetime="2020-10-30T23:00:00+00:00" class="mono"> Oct 30, 2020 </time> <a
+        href="/2020/10/30/alien-swarm-rce.html" class="sans">Wormable remote code execution in Alien Swarm</a>
+      <div class="mono"> <a href="/author/mev" itemprop="name">mev</a> tagged<a href="/tags#binary-exploitation">
+          binary-exploitation</a>,<a href="/tags#pwn"> pwn</a></div>
+    </article>
+    <article> <time datetime="2020-08-14T23:00:00+00:00" class="mono"> Aug 14, 2020 </time> <a
+        href="/2020/08/14/macos-entitlements.html" class="sans">Abusing MacOS Entitlements for code execution</a>
+      <div class="mono"> <a href="/author/impost0r" itemprop="name">impost0r</a> tagged<a href="/tags#macos">
+          macos</a>,<a href="/tags#gatekeeper"> gatekeeper</a>,<a href="/tags#security-bypass"> security-bypass</a>,<a
+          href="/tags#dropbox"> dropbox</a>,<a href="/tags#visual-studio"> visual-studio</a>,<a href="/tags#burp-suite">
+          burp-suite</a></div>
+    </article>
+    <article> <time datetime="2020-07-06T23:00:00+00:00" class="mono"> Jul 6, 2020 </time> <a
+        href="/2020/07/06/bottleye.html" class="sans">BattlEye client emulation</a>
+      <div class="mono"> <a href="/author/vmcall" itemprop="name">vmcall</a> tagged<a href="/tags#battleye">
+          battleye</a>,<a href="/tags#reverse-engineering"> reverse-engineering</a>,<a href="/tags#anti-cheats">
+          anti-cheats</a></div>
+    </article>
+    <article> <time datetime="2020-07-01T23:00:00+00:00" class="mono"> Jul 1, 2020 </time> <a
+        href="/2020/07/01/diagtrack.html" class="sans">Windows Telemetry service elevation of privilege</a>
+      <div class="mono"> <a href="/author/jonas-l" itemprop="name">Jonas L</a> tagged<a href="/tags#exploit">
+          exploit</a>,<a href="/tags#pwn"> pwn</a>,<a href="/tags#windows"> windows</a></div>
+    </article>
+    <article> <time datetime="2020-06-19T23:00:00+00:00" class="mono"> Jun 19, 2020 </time> <a
+        href="/2020/06/19/battleye-packet-encryption.html" class="sans">Cracking BattlEye packet encryption</a>
+      <div class="mono"> <a href="/author/yousif" itemprop="name">yousif</a>, <a href="/author/namazso"
+          itemprop="name">namazso</a>, <a href="/author/defcon42" itemprop="name">DefCon42</a>, <a
+          href="/author/can1357" itemprop="name">can1357</a> tagged<a href="/tags#battleye"> battleye</a>,<a
+          href="/tags#reverse-engineering"> reverse-engineering</a>,<a href="/tags#anti-cheats"> anti-cheats</a>,<a
+          href="/tags#cryptography"> cryptography</a>,<a href="/tags#eft"> eft</a></div>
+    </article>
+    <article> <time datetime="2020-05-26T23:00:00+00:00" class="mono"> May 26, 2020 </time> <a
+        href="/2020/05/26/introduction-to-uefi-part-1.html" class="sans">Introduction to UEFI: Part 1</a>
+      <div class="mono"> <a href="/author/shatter" itemprop="name">shatter</a>, <a href="/author/mattiwatti"
+          itemprop="name">Mattiwatti</a> tagged<a href="/tags#uefi"> UEFI</a>,<a href="/tags#efi"> EFI</a>,<a
+          href="/tags#edk2"> EDK2</a></div>
+    </article>
+    <article> <time datetime="2020-05-12T23:00:00+00:00" class="mono"> May 12, 2020 </time> <a
+        href="/2020/05/12/abusing-compositions.html" class="sans">Abusing DComposition to render on external windows</a>
+      <div class="mono"> <a href="/author/yousif" itemprop="name">yousif</a> tagged<a href="/tags#windows">
+          windows</a>,<a href="/tags#reverse-engineering"> reverse-engineering</a></div>
+    </article>
+    <article> <time datetime="2020-05-05T23:00:00+00:00" class="mono"> May 5, 2020 </time> <a
+        href="/2020/05/05/source-spaghetti.html" class="sans">Source Engine Memory Corruption via LUMP_PAKFILE</a>
+      <div class="mono"> <a href="/author/impost0r" itemprop="name">impost0r</a> tagged<a href="/tags#source-engine">
+          source-engine</a>,<a href="/tags#game-exploitation"> game-exploitation</a>,<a
+          href="/tags#binary-exploitation"> binary-exploitation</a>,<a href="/tags#memory-corruption">
+          memory-corruption</a>,<a href="/tags#csgo"> csgo</a></div>
+    </article>
+    <article> <time datetime="2020-04-28T23:00:00+00:00" class="mono"> Apr 28, 2020 </time> <a
+        href="/2020/04/28/anticheat_blocking_overclocking_tools.html" class="sans">Why anti-cheats block overclocking
+        tools</a>
+      <div class="mono"> <a href="/author/daax" itemprop="name">Daax</a> tagged<a href="/tags#windows"> windows</a>,<a
+          href="/tags#reverse-engineering"> reverse-engineering</a></div>
+    </article>
+    <article> <time datetime="2020-04-23T23:00:00+00:00" class="mono"> Apr 23, 2020 </time> <a
+        href="/2020/04/23/directory-deletion-shell.html" class="sans">From directory deletion to SYSTEM shell</a>
+      <div class="mono"> <a href="/author/jonas-l" itemprop="name">Jonas L</a> tagged<a href="/tags#exploit">
+          exploit</a>,<a href="/tags#pwn"> pwn</a>,<a href="/tags#windows"> windows</a></div>
+    </article>
+    <article> <time datetime="2020-04-17T23:00:00+00:00" class="mono"> Apr 17, 2020 </time> <a
+        href="/2020/04/17/kernel-anticheats.html" class="sans">Why anti-cheat software utilize kernel drivers</a>
+      <div class="mono"> <a href="/author/vmcall" itemprop="name">vmcall</a> tagged<a href="/tags#anti-cheats">
+          anti-cheats</a></div>
+    </article>
+    <article> <time datetime="2020-04-16T23:00:00+00:00" class="mono"> Apr 16, 2020 </time> <a
+        href="/2020/04/16/mono-integrity.html" class="sans">How Escape from Tarkov ensures game integrity</a>
+      <div class="mono"> <a href="/author/vmcall" itemprop="name">vmcall</a> tagged<a href="/tags#battleye">
+          battleye</a>,<a href="/tags#reverse-engineering"> reverse-engineering</a>,<a href="/tags#anti-cheats">
+          anti-cheats</a></div>
+    </article>
+    <article> <time datetime="2020-04-15T23:00:00+00:00" class="mono"> Apr 15, 2020 </time> <a
+        href="/2020/04/15/flyff-sql-injection.html" class="sans">SQL Injecting FlyFF MMO</a>
+      <div class="mono"> <a href="/author/qfrtt" itemprop="name">qfrtt</a> tagged<a href="/tags#pwn"> pwn</a></div>
+    </article>
+    <article> <time datetime="2020-04-13T23:00:00+00:00" class="mono"> Apr 13, 2020 </time> <a
+        href="/2020/04/13/how-anti-cheats-detect-system-emulation.html" class="sans">How anti-cheats detect system
+        emulation</a>
+      <div class="mono"> <a href="/author/daax" itemprop="name">Daax</a>, <a href="/author/ipower"
+          itemprop="name">iPower</a>, <a href="/author/ajkhoury" itemprop="name">ajkhoury</a>, <a href="/author/drew"
+          itemprop="name">drew</a> tagged<a href="/tags#anti-cheats"> anti-cheats</a>,<a href="/tags#hypervisors">
+          hypervisors</a>,<a href="/tags#reverse-engineering"> reverse-engineering</a>,<a href="/tags#easy-anti-cheat">
+          easy-anti-cheat</a>,<a href="/tags#battleye"> battleye</a></div>
+    </article>
+    <article> <time datetime="2020-04-10T23:00:00+00:00" class="mono"> Apr 10, 2020 </time> <a
+        href="/2020/04/10/kernel_debugging_in_seconds.html" class="sans">Kernel debugging in seconds with Vagrant</a>
+      <div class="mono"> <a href="/author/invokestatic" itemprop="name">invokestatic</a> tagged<a href="/tags#windows">
+          windows</a>,<a href="/tags#debugging"> debugging</a>,<a href="/tags#tooling"> tooling</a>,<a
+          href="/tags#reverse-engineering"> reverse-engineering</a></div>
+    </article>
+    <article> <time datetime="2020-04-08T23:00:00+00:00" class="mono"> Apr 8, 2020 </time> <a
+        href="/2020/04/08/eac_integrity_check_bypass.html" class="sans">CVEAC-2020: Bypassing EasyAntiCheat integrity
+        checks</a>
+      <div class="mono"> <a href="/author/ipower" itemprop="name">iPower</a> tagged<a href="/tags#easy-anti-cheat">
+          easy-anti-cheat</a>,<a href="/tags#anti-cheats"> anti-cheats</a></div>
+    </article>
+    <article> <time datetime="2020-03-31T23:00:00+00:00" class="mono"> Mar 31, 2020 </time> <a
+        href="/2020/03/31/battleye-developer-tracking.html" class="sans">BattlEye reverse engineer tracking</a>
+      <div class="mono"> <a href="/author/vmcall" itemprop="name">vmcall</a> tagged<a href="/tags#battleye">
+          battleye</a>,<a href="/tags#reverse-engineering"> reverse-engineering</a>,<a href="/tags#anti-cheats">
+          anti-cheats</a></div>
+    </article>
+    <article> <time datetime="2020-02-26T23:00:00+00:00" class="mono"> Feb 26, 2020 </time> <a
+        href="/2020/02/26/be_umode.html" class="sans">Bypassing BattlEye from user-mode</a>
+      <div class="mono"> <a href="/author/yousif" itemprop="name">yousif</a> tagged<a href="/tags#battleye">
+          battleye</a>,<a href="/tags#reverse-engineering"> reverse-engineering</a>,<a href="/tags#anti-cheats">
+          anti-cheats</a></div>
+    </article>
+    <article> <time datetime="2020-01-23T23:00:00+00:00" class="mono"> Jan 23, 2020 </time> <a
+        href="/2020/01/23/battleye-communication-hook.html" class="sans">BattlEye communication hook</a>
+      <div class="mono"> <a href="/author/vmcall" itemprop="name">vmcall</a> tagged<a href="/tags#battleye">
+          battleye</a>,<a href="/tags#reverse-engineering"> reverse-engineering</a>,<a href="/tags#anti-cheats">
+          anti-cheats</a></div>
+    </article>
+    <article> <time datetime="2020-01-12T23:00:00+00:00" class="mono"> Jan 12, 2020 </time> <a
+        href="/2020/01/12/battleye-hypervisor-detection.html" class="sans">BattlEye hypervisor detection</a>
+      <div class="mono"> <a href="/author/vmcall" itemprop="name">vmcall</a>, <a href="/author/daax"
+          itemprop="name">Daax</a> tagged<a href="/tags#battleye"> battleye</a>,<a href="/tags#reverse-engineering">
+          reverse-engineering</a>,<a href="/tags#anti-cheats"> anti-cheats</a></div>
+    </article>
+    <article> <time datetime="2020-01-11T23:00:00+00:00" class="mono"> Jan 11, 2020 </time> <a
+        href="/2020/01/11/battleye-single-stepping.html" class="sans">BattlEye single stepping</a>
+      <div class="mono"> <a href="/author/vmcall" itemprop="name">vmcall</a> tagged<a href="/tags#battleye">
+          battleye</a>,<a href="/tags#reverse-engineering"> reverse-engineering</a>,<a href="/tags#anti-cheats">
+          anti-cheats</a></div>
+    </article>
+    <article> <time datetime="2020-01-05T23:00:00+00:00" class="mono"> Jan 5, 2020 </time> <a
+        href="/2020/01/05/battleye-stack-walking.html" class="sans">BattlEye stack walking</a>
+      <div class="mono"> <a href="/author/vmcall" itemprop="name">vmcall</a> tagged<a href="/tags#battleye">
+          battleye</a>,<a href="/tags#reverse-engineering"> reverse-engineering</a>,<a href="/tags#anti-cheats">
+          anti-cheats</a></div>
+    </article>
+    <article> <time datetime="2020-01-05T23:00:00+00:00" class="mono"> Jan 5, 2020 </time> <a
+        href="/2020/01/05/battleye-shellcode-updates.html" class="sans">BattlEye shellcode updates</a>
+      <div class="mono"> <a href="/author/vmcall" itemprop="name">vmcall</a> tagged<a href="/tags#battleye">
+          battleye</a>,<a href="/tags#reverse-engineering"> reverse-engineering</a>,<a href="/tags#anti-cheats">
+          anti-cheats</a></div>
+    </article>
+    <article> <time datetime="2019-11-06T23:00:00+00:00" class="mono"> Nov 6, 2019 </time> <a
+        href="/2019/11/06/kernel-code-alignment.html" class="sans">Bypassing kernel function pointer integrity
+        checks</a>
+      <div class="mono"> <a href="/author/vmcall" itemprop="name">vmcall</a> tagged<a href="/tags#windows">
+          windows</a>,<a href="/tags#reverse-engineering"> reverse-engineering</a></div>
+    </article>
+    <article> <time datetime="2019-10-18T23:00:00+00:00" class="mono"> Oct 18, 2019 </time> <a
+        href="/2019/10/18/kernel_gdi_hook.html" class="sans">Hooking the graphics kernel subsystem</a>
+      <div class="mono"> <a href="/author/vmcall" itemprop="name">vmcall</a> tagged<a href="/tags#windows">
+          windows</a>,<a href="/tags#reverse-engineering"> reverse-engineering</a></div>
+    </article>
+    <article> <time datetime="2019-05-16T23:00:00+00:00" class="mono"> May 16, 2019 </time> <a
+        href="/2019/05/16/exam-surveillance2.html" class="sans">Exam surveillance - the return. (ExamCookie)</a>
+      <div class="mono"> <a href="/author/vmcall" itemprop="name">vmcall</a> tagged<a href="/tags#reverse-engineering">
+          reverse-engineering</a></div>
+    </article>
+    <article> <time datetime="2019-03-07T23:00:00+00:00" class="mono"> Mar 7, 2019 </time> <a
+        href="/2019/03/07/exam-surveillance.html" class="sans">The nadir of surveillance (Den Digitale Prøvevagt)</a>
+      <div class="mono"> <a href="/author/vmcall" itemprop="name">vmcall</a> tagged<a href="/tags#reverse-engineering">
+          reverse-engineering</a></div>
+    </article>
+    <article> <time datetime="2019-02-10T23:00:00+00:00" class="mono"> Feb 10, 2019 </time> <a
+        href="/2019/02/10/battleye-anticheat.html" class="sans">BattlEye anti-cheat: analysis and mitigation</a>
+      <div class="mono"> <a href="/author/vmcall" itemprop="name">vmcall</a> tagged<a href="/tags#battleye">
+          battleye</a>,<a href="/tags#reverse-engineering"> reverse-engineering</a>,<a href="/tags#anti-cheats">
+          anti-cheats</a></div>
+    </article>
+    <article> <time datetime="2019-01-24T23:00:00+00:00" class="mono"> Jan 24, 2019 </time> <a
+        href="/2019/01/24/reverse-engineering-bdo-2.html" class="sans">Reverse engineering 'Black Desert Online' (2.
+        Speed -> local entity)</a>
+      <div class="mono"> <a href="/author/vmcall" itemprop="name">vmcall</a> tagged<a href="/tags#reverse-engineering">
+          reverse-engineering</a>,<a href="/tags#game-hacking"> game-hacking</a></div>
+    </article>
+    <article> <time datetime="2019-01-09T23:00:00+00:00" class="mono"> Jan 9, 2019 </time> <a
+        href="/2019/01/09/reverse-engineering-bdo-1.html" class="sans">Reverse engineering 'Black Desert Online' (1.
+        Preface)</a>
+      <div class="mono"> <a href="/author/vmcall" itemprop="name">vmcall</a> tagged<a href="/tags#reverse-engineering">
+          reverse-engineering</a>,<a href="/tags#game-hacking"> game-hacking</a></div>
+    </article>
+  </main>
+  <script async defer src="https://analytics.secret.club/latest.js"></script> <noscript><img
+      src="https://analytics.secret.club/noscript.gif" alt="" /></noscript>
+</body>
+
+</html>

@@ -1,11 +1,37 @@
-body {
-  background-color: #e9e9e9;
+:root {
+  --backgColor: #e9e9e9;
+  --selectionBackgColor: rgb(122, 122, 122);
+  --selectionColor: rgb(34, 34, 34);
+  --fontColor: black;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --backgColor: #121212;
+    --selectionBackgColor: rgb(122, 122, 122);
+    --selectionColor: rgb(34, 34, 34);
+    --fontColor: #e9e9e9;
+  }
+}
+
+html {
+    background-color: var(--backgColor);
+  color: var(--fontColor);
   font-family: monospace;
   font-size: 5vmin;
 }
+
 ::selection {
-  color: rgb(34, 34, 34);
-  background: rgb(122, 122, 122);
+  color: var(--selectionColor);
+  background: var(--selectionBackgColor);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 6vmin;
 }
 
 .links {
@@ -21,18 +47,9 @@ body {
 
 ul {
   list-style-type: none; 
-  
 }
+
 img { 
   max-height: auto;
   max-width: 100%;
 }
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin: 6vmin;
-}
-
-
