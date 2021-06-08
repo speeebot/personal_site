@@ -1,0 +1,35 @@
+body {
+  background-color: #e9e9e9;
+  font-family: monospace;
+  font-size: 5vmin;
+}
+::selection {
+  color: rgb(34, 34, 34);
+  background: rgb(122, 122, 122);
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.links img {
+  margin: 3vmin;
+}
+
+ul {
+  list-style-type: none; 
+  
+}
+img { 
+  max-width: 100%;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
