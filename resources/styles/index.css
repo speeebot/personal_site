@@ -15,7 +15,7 @@ body {
   flex-direction: row;
 }
 
-.links img {
+.links h3,a {
   margin: 3vmin;
 }
 
