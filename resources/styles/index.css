@@ -15,10 +15,14 @@
 }
 
 html {
-    background-color: var(--backgColor);
+  background-color: var(--backgColor);
   color: var(--fontColor);
   font-family: monospace;
   font-size: 5vmin;
+}
+
+body {
+  margin: 0 auto;
 }
 
 ::selection {
@@ -26,30 +30,24 @@ html {
   background: var(--selectionBackgColor);
 }
 
-.container {
+.flex-container{
   display: flex;
+  flex-flow: column nowrap; 
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100vh;
+}
+
+#social-links{
+  display: flex;
+  flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  margin: 6vmin;
+  width: 100vw;
 }
 
-.links {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-}
-
-.links h3,a {
-  margin: 3vmin;
-}
-
-ul {
-  list-style-type: none; 
-}
-
-img { 
-  max-height: auto;
-  max-width: 100%;
+#username, #social-links img { 
+  display: block;
+  margin-left: 1.5vw;
+  margin-right: 1.5vw;
 }
