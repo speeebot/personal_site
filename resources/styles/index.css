@@ -35,7 +35,7 @@ body {
   flex-flow: column nowrap; 
   justify-content: space-evenly;
   align-items: center;
-  height: 100vh;
+  height: 90vh;
 }
 
 #social-links{
@@ -48,4 +48,17 @@ body {
 
 #username, #social-links img { 
   display: block;
+}
+
+#pgp-container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: flex-start;
+  height: 10vh;
+}
+
+#pgp-key {
+  white-space: pre-line; /*collapse sequences of whitespace*/
+  font-size: 2vmin;
 }
