@@ -46,8 +46,8 @@ body {
   width: 80vw;
 }
 
-#username, #social-links img { 
-  display: block;
+#social-links img:hover { 
+  opacity: .8;
 }
 
 #pgp-container {
