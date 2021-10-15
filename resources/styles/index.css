@@ -14,16 +14,10 @@
   }
 }
 
-@media (min-width: 500px) {
-  .social-links {
-    width: calc(100% / 2 - 5px);
-  }
-}
-
-@viewport {
+/*@viewport {
   width: device-width ;
   zoom: 1.0 ;
-} 
+} */
 
 html {
   background-color: var(--backgColor);
@@ -54,7 +48,7 @@ body {
   flex-flow: row wrap;
   justify-content: space-evenly;
   align-items: center;
-  width: 80vw;
+  width: 70%;
 }
 
 /*img {
