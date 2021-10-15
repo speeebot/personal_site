@@ -14,6 +14,17 @@
   }
 }
 
+@media (min-width: 500px) {
+  .social-links {
+    width: calc(100% / 2 - 5px);
+  }
+}
+
+@viewport {
+  width: device-width ;
+  zoom: 1.0 ;
+} 
+
 html {
   background-color: var(--backgColor);
   color: var(--fontColor);
@@ -40,11 +51,15 @@ body {
 
 #social-links{
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   justify-content: space-evenly;
   align-items: center;
   width: 80vw;
 }
+
+/*img {
+  max-width: 100%;
+}*/
 
 #social-links img:hover { 
   opacity: .8;
