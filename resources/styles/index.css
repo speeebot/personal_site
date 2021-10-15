@@ -14,6 +14,27 @@
   }
 }
 
+@media screen and (max-width: 320px) {
+  /* comes into effect for screens less than or equal to 320 pixels */
+  #social-links {
+    width: 120px ;
+  }
+}
+
+@media screen and (min-width: 321px) and (max-width: 480px) {
+  /* comes into effect for screens between 321 and 480 pixels (inclusive) */
+  #social-links {
+    width: 320px ;
+  }
+}
+
+@media screen and (min-width: 481px) {
+  /* comes into effect for screens larger than or equal to 481 pixels */
+  #social-links {
+    width: 480px ;
+  }
+}
+
 /*@viewport {
   width: device-width ;
   zoom: 1.0 ;
@@ -41,6 +62,7 @@ body {
   justify-content: space-evenly;
   align-items: center;
   height: 90vh;
+  border: 1px solid green;
 }
 
 #social-links{
@@ -48,12 +70,14 @@ body {
   flex-flow: row wrap;
   justify-content: space-evenly;
   align-items: center;
-  width: 70%;
+  width: 70vw;
+  border: 1px solid red;
 }
 
-/*img {
-  max-width: 100%;
-}*/
+#social-links img {
+  /*max-width: 100%;*/
+  display: block;
+}
 
 #social-links img:hover { 
   opacity: .8;
