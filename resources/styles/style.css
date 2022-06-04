@@ -60,10 +60,11 @@ body {
 
 #social-links img {
   display: block;
+  opacity: .8;
 }
 
 #social-links img:hover { 
-  opacity: .8;
+  opacity: 1.0;
 }
 
 #pgp-container {
