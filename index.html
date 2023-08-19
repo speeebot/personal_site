@@ -4,57 +4,61 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome</title>
+  <title>hi, i'm Shawn</title>
   <link rel="stylesheet" href="resources/styles/style.css">
   <!--<link rel="icon" type="image/x-icon/" href="resources/images/favicon.ico">-->
 </head>
 
 <body>
+  <div class="vertical-center">
+    <div class="flex-container">
+      <div id="intro-block">
+        <h3 id="intro">hi, i'm Shawn</h3>
+        <p id="intro-subtext">Graduate CS student at USF, aspiring software developer</p>
+      </div>
+      <!--<iframe src="https://open.spotify.com/embed/track/5Q5MFVjUWVNgb7XBerPdbQ" width="300" height="380" frameborder="0"
+        allowtransparency="true" allow="encrypted-media">
+      </iframe>-->
+      
+      <img id="headshot" src="resources/images/pfp2.jpg">
 
-  <div class="flex-container">
-    <iframe src="https://open.spotify.com/embed/track/5Q5MFVjUWVNgb7XBerPdbQ" width="300" height="380" frameborder="0"
-      allowtransparency="true" allow="encrypted-media">
-    </iframe>
-    <div id="social-links">
-      <!--<h3 id="username">username goes here</h3>-->
-      <a href="https://www.linkedin.com/in/diazshawn" target="_blank">
-        <img src="resources/images/LI-In-Bug_120px.png" alt="LinkedIn" title="LinkedIn">
-      </a>
-
-      <a href="https://github.com/speeebot" target="_blank">
-        <picture>
-          <source srcset="resources/images/GitHub-Mark-Light-120px-plus.png" media="(prefers-color-scheme: dark)">
-          <img src="resources/images/GitHub-Mark-120px-plus.png" alt="GitHub" title="GitHub">
-        </picture>
-      </a>
-
-      <a href="https://open.spotify.com/user/speeebot?si=716f83f241c24a61" target="_blank">
-        <img src="resources/images/Spotify_Icon_RGB_Green.png" alt="Spotify" title="Spotify">
-      </a>
-      <div class="break"></div>
-      <a href="#">
-        <img src="resources/images/gnupg_120px.png" alt="PGP Key" title="PGP Key" onclick="if(document.getElementById('spoiler') .style.display=='none') {document.getElementById('spoiler') .style.display=''}
-          else{document.getElementById('spoiler') .style.display='none'}">
-      </a>
-
-      <a href="https://matrix.to/#/@speeebot:matrix.movrax.com" target="_blank">
-        <picture>
-          <source srcset="resources/images/matrix_logo_white_120px.png" media="(prefers-color-scheme: dark)">
-          <img src="resources/images/matrix_logo_black_120px.png" alt="Matrix" title="Send me a direct message">
-        </picture>
-      </a>
-
-      <a href="mailto:speeebot@gmail.com" target="_blank">
-        <picture>
-          <source srcset="resources/images/white_email_120px.png" media="(prefers-color-scheme: dark)">
-          <img src="resources/images/black_email_120px.png" alt="Email" title="Send me an Email">
-        </picture>
-      </a>
-
-    </div>
-
+      <div id="links-block">
+        <p id="links-text">you can find me here:</p>
+        <div id="social-links">
+          <a href="https://github.com/speeebot" target="_blank">
+            <picture>
+              <source srcset="resources/images/GitHub-Mark-Light-120px-plus.png" media="(prefers-color-scheme: dark)">
+              <img src="resources/images/GitHub-Mark-120px-plus.png" alt="GitHub" title="GitHub">
+            </picture>
+          </a>
+          <a href="https://www.linkedin.com/in/diazshawn" target="_blank">
+            <img src="resources/images/LI-In-Bug_120px.png" alt="LinkedIn" title="LinkedIn">
+          </a>
+          <a href="mailto:shawn@shawndiaz.dev" target="_blank">
+            <picture>
+              <source srcset="resources/images/white_email_120px.png" media="(prefers-color-scheme: dark)">
+              <img src="resources/images/black_email_120px.png" alt="Email" title="Send me an Email">
+            </picture>
+          </a>
+          <!--<a href="https://open.spotify.com/user/speeebot?si=716f83f241c24a61" target="_blank">
+            <img src="resources/images/Spotify_Icon_RGB_Green.png" alt="Spotify" title="Spotify">
+          </a>
+          <div class="break"></div>-->
+          <!--<a href="#">
+            <img src="resources/images/gnupg_120px.png" alt="PGP Key" title="PGP Key" onclick="if(document.getElementById('spoiler') .style.display=='none') {document.getElementById('spoiler') .style.display=''}
+              else{document.getElementById('spoiler') .style.display='none'}">
+          </a>-->
+          <!--<a href="https://matrix.to/#/@speeebot:matrix.movrax.com" target="_blank">
+            <picture>
+              <source srcset="resources/images/matrix_logo_white_120px.png" media="(prefers-color-scheme: dark)">
+              <img src="resources/images/matrix_logo_black_120px.png" alt="Matrix" title="Send me a direct message">
+            </picture>
+          </a>-->
+        </div> <!--end social-links-->
+      </div> <!--end links-block-->
+    </div> <!--end flex-container-->
   </div>
-  <div id="pgp-container">
+  <!--<div id="pgp-container">
     <div id="spoiler" style="display:none">
       <pre id="pgp-key">
         -----BEGIN PGP PUBLIC KEY BLOCK-----
@@ -100,7 +104,7 @@
         -----END PGP PUBLIC KEY BLOCK-----
       </pre>
     </div>
-  </div>
+  </div>-->
 
 </body>
 
