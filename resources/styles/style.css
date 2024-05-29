@@ -4,6 +4,7 @@
   --selectionColor: rgb(34, 34, 34);
   --fontColor: black;
 }
+
 @media (prefers-color-scheme: dark) {
   :root {
     --backgColor: #121212;
@@ -12,20 +13,14 @@
     --fontColor: #e9e9e9;
   }
 }
-@viewport {
-  width: device-width ;
-  zoom: 1.0 ;
-} 
-html {
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: monospace;
+  font-size: 16px;
   background-color: var(--backgColor);
   color: var(--fontColor);
-  font-family: monospace;
-  font-size: 5vh;
-}
-body {
-  width: auto;
-  height: 50%;
-  margin: 15vw;
   overflow: hidden;
 }
 
@@ -34,11 +29,13 @@ body {
   background: var(--selectionBackgColor);
 }
 
-
-.flex-container{
+.flex-container {
   display: flex;
-  flex-flow: column nowrap; 
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
 }
 
 #headshot {
@@ -47,64 +44,39 @@ body {
   max-width: 200px;
 }
 
-#intro-block {
-  margin-top: auto;
+#intro-block, #links-block {
   display: flex;
-  flex-flow: column nowrap; 
+  flex-direction: column;
   align-items: center;
 }
-#intro-block > h3{
-  padding: 0px;
-  margin: 0px;
-}
+
 #intro {
-  font-size: 5vmin;
-  text-align: center;
+  font-size: 2rem;
 }
+
 #intro-subtext {
-  font-size: 2vmin;
-  text-align: center;
+  font-size: 1rem;
   max-width: 30vw;
 }
 
-
-#links-block {
-  margin-bottom: auto;
-  display: flex;
-  flex-flow: column nowrap; 
-  align-items: center;
-  justify-content: space-evenly;
-}
 #links-text {
-  font-size: 3vmin;
-}
-#social-links{
-  display: flex;
-  flex-flow: row nowrap; 
-  align-items: center;
-  justify-content: space-evenly;
-  gap: 25%;
+  font-size: 1.5rem;
 }
 
+#social-links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
 
 #social-links img {
   display: block;
   max-width: 12vw;
   opacity: .8;
 }
-#social-links img:hover { 
+
+#social-links img:hover {
   opacity: 1.0;
-}
-
-
-#pgp-container {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-  align-items: flex-start;
-  height: 10vh;
-}
-#pgp-key {
-  white-space: pre-line; /*collapse sequences of whitespace*/
-  font-size: 2vmin;
 }
