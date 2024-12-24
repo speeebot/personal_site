@@ -18,5 +18,9 @@ services:
       # Mount the www certs
       - /etc/letsencrypt/live/www.shawndiaz.dev/fullchain.pem:/etc/nginx/certs/www.shawndiaz.dev-fullchain.pem:ro
       - /etc/letsencrypt/live/www.shawndiaz.dev/privkey.pem:/etc/nginx/certs/www.shawndiaz.dev-privkey.pem:ro
+      
+      # Mount the standard Let's Encrypt config & dhparams
+      - /etc/letsencrypt/options-ssl-nginx.conf:/etc/letsencrypt/options-ssl-nginx.conf:ro
+      - /etc/letsencrypt/ssl-dhparams.pem:/etc/letsencrypt/ssl-dhparams.pem:ro
     # Always restart unless manually stopped
     restart: unless-stopped
