@@ -11,7 +11,6 @@ services:
       - "443:443"
     # Mount the certs folder so we can use them in the container
     volumes:
-     volumes:
       # Mount the non-www certs
       - /etc/letsencrypt/live/shawndiaz.dev/fullchain.pem:/etc/nginx/certs/shawndiaz.dev-fullchain.pem:ro
       - /etc/letsencrypt/live/shawndiaz.dev/privkey.pem:/etc/nginx/certs/shawndiaz.dev-privkey.pem:ro
