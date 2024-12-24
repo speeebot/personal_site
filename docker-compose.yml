@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    # Publish HTTP and HTTPS from container to host
+    ports:
+      - "80:80"
+      - "443:443"
+    # Mount the certs folder so we can use them in the container
+    volumes:
+     volumes:
+      # Mount the non-www certs
+      - /etc/letsencrypt/live/shawndiaz.dev/fullchain.pem:/etc/nginx/certs/shawndiaz.dev-fullchain.pem:ro
+      - /etc/letsencrypt/live/shawndiaz.dev/privkey.pem:/etc/nginx/certs/shawndiaz.dev-privkey.pem:ro
+
+      # Mount the www certs
+      - /etc/letsencrypt/live/www.shawndiaz.dev/fullchain.pem:/etc/nginx/certs/www.shawndiaz.dev-fullchain.pem:ro
+      - /etc/letsencrypt/live/www.shawndiaz.dev/privkey.pem:/etc/nginx/certs/www.shawndiaz.dev-privkey.pem:ro
+    # Always restart unless manually stopped
+    restart: unless-stopped
