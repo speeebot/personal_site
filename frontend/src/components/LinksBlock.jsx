@@ -18,11 +18,11 @@ const LinksBlock = () => {
         <a href="https://github.com/speeebot" target="_blank" rel="noreferrer">
           <picture>
             <source
-              srcSet="resources/images/GitHub-Mark-Light-120px-plus.png"
+              srcSet="/resources/images/GitHub-Mark-Light-120px-plus.png"
               media="(prefers-color-scheme: dark)"
             />
             <img
-              src="resources/images/GitHub-Mark-120px-plus.png"
+              src="/resources/images/GitHub-Mark-120px-plus.png"
               alt="GitHub"
               title="GitHub"
               style={{ width: '48px' }}
@@ -35,7 +35,7 @@ const LinksBlock = () => {
           rel="noreferrer"
         >
           <img
-            src="resources/images/LI-In-Bug_120px.png"
+            src="/resources/images/LI-In-Bug_120px.png"
             alt="LinkedIn"
             title="LinkedIn"
             style={{ width: '48px' }}
@@ -44,11 +44,11 @@ const LinksBlock = () => {
         <a href="mailto:shawn@shawndiaz.dev" target="_blank" rel="noreferrer">
           <picture>
             <source
-              srcSet="resources/images/white_email_120px.png"
+              srcSet="/resources/images/white_email_120px.png"
               media="(prefers-color-scheme: dark)"
             />
             <img
-              src="resources/images/black_email_120px.png"
+              src="/resources/images/black_email_120px.png"
               alt="Email"
               title="Send me an Email"
               style={{ width: '48px' }}

@@ -6,7 +6,7 @@ const Headshot = () => {
     <Box 
       id="headshot" 
       component="img" 
-      src={"resources/images/pfp2.jpg"} 
+      src={"/resources/images/pfp2.jpg"} 
       alt="Headshot"
       sx={{
         width: { xs: '50vw', md: 200 },
