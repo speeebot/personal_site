@@ -21,6 +21,13 @@ RUN npm run build
 # -------------------------
 FROM nginx:stable-alpine
 
+# Install openssl for generating DH parameters
+RUN apk add --no-cache openssl
+
+# Copy SSL configuration script
+COPY docker/ssl-config.sh /docker-entrypoint.d/40-ssl-config.sh
+RUN chmod +x /docker-entrypoint.d/40-ssl-config.sh
+
 # Copy custom Nginx config
 COPY docker/nginx.conf /etc/nginx/nginx.conf
 

@@ -32,6 +32,18 @@ docker-compose exec web mkdir -p /var/www/certbot
 docker-compose exec web chown -R nginx:nginx /var/www/certbot
 docker-compose exec web chmod -R 755 /var/www/certbot
 
+# Ensure SSL configuration is present
+echo "Verifying SSL configuration..."
+if ! docker-compose exec web test -f /etc/letsencrypt/options-ssl-nginx.conf; then
+    echo "Error: SSL configuration is missing"
+    exit 1
+fi
+
+if ! docker-compose exec web test -f /etc/letsencrypt/ssl-dhparams.pem; then
+    echo "Error: DH parameters are missing"
+    exit 1
+fi
+
 # Run certbot to get initial certificates
 echo "Running certbot..."
 docker-compose run --rm certbot
