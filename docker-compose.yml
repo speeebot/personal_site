@@ -22,5 +22,21 @@ services:
       # Mount the standard Let's Encrypt config & dhparams
       - /etc/letsencrypt/options-ssl-nginx.conf:/etc/letsencrypt/options-ssl-nginx.conf:ro
       - /etc/letsencrypt/ssl-dhparams.pem:/etc/letsencrypt/ssl-dhparams.pem:ro
+      - ./certs:/etc/nginx/certs:ro
+      - ./letsencrypt:/etc/letsencrypt:ro
+      - ./www:/var/www/certbot:ro
+    depends_on:
+      - certbot
     # Always restart unless manually stopped
+    restart: unless-stopped
+
+  certbot:
+    build:
+      context: .
+      dockerfile: ./docker/certbot/Dockerfile
+    volumes:
+      - ./certs:/etc/letsencrypt/live
+      - ./letsencrypt:/etc/letsencrypt
+      - ./www:/var/www/certbot
+    command: certonly --webroot -w /var/www/certbot --email speeebot@gmail.com--agree-tos --no-eff-email -d shawndiaz.dev -d www.shawndiaz.dev --force-renewal
     restart: unless-stopped
