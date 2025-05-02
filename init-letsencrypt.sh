@@ -11,12 +11,18 @@ docker-compose up -d web
 
 # Wait for the web server to be ready
 echo "Waiting for web server to be ready..."
-sleep 10
+for i in {1..30}; do
+  if curl -s -o /dev/null http://localhost; then
+    break
+  fi
+  sleep 2
+done
 
 # Verify the web server is responding
 echo "Verifying web server is accessible..."
-if ! curl -s -o /dev/null -w "%{http_code}" http://localhost:80 > /dev/null; then
-    echo "Error: Web server is not accessible on port 80"
+HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" http://localhost)
+if [ "$HTTP_CODE" != "200" ]; then
+    echo "Error: Web server is not accessible (HTTP $HTTP_CODE)"
     exit 1
 fi
 

@@ -10,14 +10,13 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - ./certs:/etc/nginx/certs:ro
       - ./letsencrypt:/etc/letsencrypt:ro
       - ./www:/var/www/certbot:rw
     networks:
       - app-network
     # Always restart unless manually stopped
     restart: unless-stopped
-    user: "nginx:nginx"
+    #user: "nginx:nginx"
 
   certbot:
     build:
