@@ -20,7 +20,10 @@ export default defineConfig({
           mui: ['@mui/material', '@mui/icons-material']
         }
       }
-    }
+    },
+    chunkSizeWarningLimit: 1000,
+    cssCodeSplit: true,
+    assetsInlineLimit: 4096
   },
   server: {
     headers: {
