@@ -4,7 +4,7 @@ FROM certbot/certbot:latest
 RUN mkdir -p /etc/letsencrypt
 
 # Copy renewal script
-COPY renew.sh /usr/local/bin/renew.sh
+COPY docker/certbot/renew.sh /usr/local/bin/renew.sh
 RUN chmod +x /usr/local/bin/renew.sh
 
 # Set up cron for automatic renewal
