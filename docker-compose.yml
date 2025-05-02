@@ -12,20 +12,21 @@ services:
     volumes:
       - ./certs:/etc/nginx/certs:ro
       - ./letsencrypt:/etc/letsencrypt:ro
-      - ./www:/var/www/certbot:ro
+      - ./www:/var/www/certbot:rw
     networks:
       - app-network
     # Always restart unless manually stopped
     restart: unless-stopped
+    user: "nginx:nginx"
 
   certbot:
     build:
       context: .
       dockerfile: ./docker/certbot/Dockerfile
     volumes:
-      - ./certs:/etc/letsencrypt/live
-      - ./letsencrypt:/etc/letsencrypt
-      - ./www:/var/www/certbot
+      - ./certs:/etc/letsencrypt/live:rw
+      - ./letsencrypt:/etc/letsencrypt:rw
+      - ./www:/var/www/certbot:rw
     depends_on:
       - web
     networks:
