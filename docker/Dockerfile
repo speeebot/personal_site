@@ -5,15 +5,15 @@ FROM node:18-alpine AS builder
 
 WORKDIR /app
 
-# Copy package files & install dependencies
+# Install dependencies first (better caching)
 COPY frontend/package*.json ./
-RUN npm install
+RUN npm install --verbose
 
 # Copy the rest of the frontend source code
 COPY frontend/ ./
 
 # Build the production bundle -> dist/
-RUN npm run build
+RUN npm run build --verbose
 
 
 # -------------------------
